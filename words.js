@@ -11,6 +11,17 @@ engineer
 
 space
 rocket
-
+astronaut
+galaxy
+moon
+planet
+sun
+black hole
+comet
+Earth
+star
+interstellar
+Milky way
+NASA
 
 `
