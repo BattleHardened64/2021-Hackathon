@@ -1,6 +1,6 @@
 var wordlist = `
 
-Hunstville
+Huntsville
 Alabama
 
 University of Alabama
