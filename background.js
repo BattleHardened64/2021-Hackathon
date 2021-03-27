@@ -23,7 +23,7 @@ function animateBG(){
 
     if(rocketLoaded) {
         rocketGone += (wrongGuesses .length / 10 - rocketGone) * 0.1
-        
+
         ctx.save()
         var s = 70
         ctx.translate(0,15);
@@ -33,6 +33,7 @@ function animateBG(){
         ctx.restore()
     }
 
+    drawButtons();
 
     requestAnimationFrame(animateBG); // run this function again every 1/60th of a second
 }

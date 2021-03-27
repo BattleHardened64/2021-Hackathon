@@ -1,3 +1,10 @@
+// global variables
+var correctLetters; // array of correct characters
+var revealedLetters; // array of true/false for which letters have been revealed
+var allGuesses; // list of letters that have been guessed
+var rightGuesses; // list of letters that were right guesses
+var wrongGuesses; // list of letters that were wrong guesses
+
 
 function setup(){
     // split up the word list
@@ -9,27 +16,17 @@ function setup(){
         }
     })
 
-    // start the background animation loop
-    animateBG();
+    // start a new game
+    resetGame();
 
     // detect key presses
     document.addEventListener("keydown",keyboardEvent);
 
-    // start a new game
-    resetGame();
+    // start the background animation loop
+    animateBG();
 
 }
 document.addEventListener('DOMContentLoaded', setup); // run when ready
-
-
-// global variables
-var correctLetters; // array of correct characters
-var revealedLetters; // array of true/false for which letters have been revealed
-var allGuesses; // list of letters that have been guessed
-var rightGuesses; // list of letters that were right guesses
-var wrongGuesses; // list of letters that were wrong guesses
-
-// ^ we don't have to do it exactly like this, just my first thought
 
 
 function resetGame() {

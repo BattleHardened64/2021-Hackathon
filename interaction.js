@@ -42,3 +42,31 @@ function processInput(letter) {
     }
     temp.innerHTML = t;
 }
+
+function drawButtons() {
+    ctx.textAlign = "center";
+    for(var row = 0; row < 3; row++) {
+        var letters = ["qwertyuiop", "asdfghjkl", "zxcvbnm"][row];
+        var offset = [0, 0.2, 0.5][row];
+        for(var i = 0; i < letters.length; i++) {
+            var letter = letters[i];
+            var x = (offset + i) * 7 + 25;
+            var y = 70 + 7 * row;
+
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = "#333";
+            ctx.fillRect(0, 0, 5, 5);
+            ctx.fillStyle = "#FFF";
+            if(allGuesses.includes(letter)) {
+                ctx.fillStyle = "#444";
+            }
+            if(wrongGuesses.includes(letter)) {
+                ctx.fillStyle = "#F55";
+            }
+            ctx.font = "4px Arial";
+            ctx.fillText(letter.toUpperCase(), 2.5, 4);
+            ctx.restore();
+        }
+    }
+}
