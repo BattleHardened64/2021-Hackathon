@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  margin: 0 0;
+  overflow: hidden;
+}
+
+#canvas { /* the background graphics */
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#container { /* a container for the main content, centered in the page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
