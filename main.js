@@ -22,6 +22,9 @@ function setup(){
     // detect key presses
     document.addEventListener("keydown",keyboardEvent);
 
+    // detect mouse/touch input
+    document.addEventListener("click",clickEvent);
+
     // start the background animation loop
     animateBG();
 

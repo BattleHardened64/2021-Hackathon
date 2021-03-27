@@ -5,6 +5,11 @@ function keyboardEvent(e) {
     }
 }
 
+var lastClick = {x: 0, y: 0};
+function clickEvent(e) {
+    lastClick = {x: e.x, y: e.y};
+}
+
 function processInput(letter) {
     // just in case: (pun unavoidable)
     letter = letter.toLowerCase();
@@ -56,7 +61,13 @@ function drawButtons() {
             ctx.save();
             ctx.translate(x, y);
             ctx.fillStyle = "#333";
-            ctx.fillRect(0, 0, 5, 5);
+            var rect = new Path2D();
+            rect.rect(0, 0, 5, 5)
+            ctx.fill(rect);
+            if(ctx.isPointInPath(rect, lastClick.x, lastClick.y)) {
+                processInput(letter);
+                lastClick = {x:0, y:0};
+            }
             ctx.fillStyle = "#FFF";
             if(allGuesses.includes(letter)) {
                 ctx.fillStyle = "#444";
