@@ -61,6 +61,8 @@ function resetGame() {
     won = false;
     gameover = false;
 
+    resetParticles();
+
     // temporary TODO remove
     var t = ""
     for (var i = 0; i < correctLetters.length; i++) {

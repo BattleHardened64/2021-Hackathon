@@ -3,6 +3,9 @@ function keyboardEvent(e) {
     if(key.length == 1 && key >= 'a' && key <= 'z'){
         processInput(key);
     }
+    if(key == "enter" && gameover && rocketVel > 0.1) {
+        resetGame();
+    }
 }
 
 var lastClick = {x: 0, y: 0};

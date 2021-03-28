@@ -21,7 +21,7 @@ function animateBG(){
     if(won) {
         ctx.translate(0, rocketHeight); // follow the rocket up if you won
     }
-    if(gameover && rocketVel < 1) {
+    if(gameover && rocketVel < 1) { // shake the screen
         ctx.translate(Math.random() * (1 - rocketVel), Math.random() * (1 - rocketVel));
     }
 
@@ -29,6 +29,8 @@ function animateBG(){
     ctx.fillStyle = "#30b050";
     ctx.fillRect(-100, 68, 300, 1000);
     draw();
+
+    drawParticles();
 
     if(rocketLoaded) {
         var cutoffs = [2588, 1599, 1469, 899, 613, 398, 295, 237, 0];

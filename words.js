@@ -9,7 +9,7 @@ Saturn V
 Wernher von Braun
 Redstone
 
-University of Alabama
+UAHuntsville
 university
 college
 engineering
