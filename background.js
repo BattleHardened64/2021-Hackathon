@@ -36,6 +36,7 @@ function animateBG(){
     drawButtons();
 
     requestAnimationFrame(animateBG); // run this function again every 1/60th of a second
+
 }
 
 var rocket = new Image();
