@@ -47,17 +47,6 @@ function processInput(letter) {
             gameover = true;
         }
     }
-
-    // temporary TODO remove
-    var t = ""
-    for (var i = 0; i < correctLetters.length; i++) {
-        if(revealedLetters[i]) {
-            t = t + correctLetters[i] + "\u2002"
-        } else {
-            t = t + "_\u2002"
-        }
-    }
-    temp.innerHTML = t;
 }
 
 function drawButtons() {
@@ -92,6 +81,24 @@ function drawButtons() {
             ctx.restore();
         }
     }
+
+    correctLetters.forEach((letter, i) => {
+        if(letter != " ") {
+            ctx.save();
+            ctx.translate(60+i*4-correctLetters.length*2, 50);
+            ctx.fillStyle = "#9cc";
+            ctx.beginPath();
+            ctx.arc(0, 0, 2.5, 0, 2 * Math.PI);
+            ctx.fill();
+            if(revealedLetters[i]) {
+                ctx.fillStyle = "#000";
+                ctx.font = "3px Arial";
+                ctx.fillText(letter, 0, 1);
+            }
+            ctx.restore();
+        }
+    });
+
 }
   function drawPlayAgain(){
     var canvas = document.getElementById('canvas');

@@ -62,16 +62,4 @@ function resetGame() {
     gameover = false;
 
     resetParticles();
-
-    // temporary TODO remove
-    var t = ""
-    for (var i = 0; i < correctLetters.length; i++) {
-        if(revealedLetters[i]) {
-            t = t + correctLetters[i] + "\u2002"
-        } else {
-            t = t + "_\u2002"
-        }
-    }
-    temp.innerHTML = t;
-
 }
