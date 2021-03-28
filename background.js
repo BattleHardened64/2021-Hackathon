@@ -19,11 +19,11 @@ function animateBG(){
     // draw some grass
     ctx.fillStyle = "#30b050";
     ctx.fillRect(-100, 68, 300, 1000);
-
+    draw();
 
     if(rocketLoaded) {
         rocketGone += (wrongGuesses .length / 10 - rocketGone) * 0.1
-        
+
         ctx.save()
         var s = 70
         ctx.translate(0,15);
