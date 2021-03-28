@@ -31,6 +31,8 @@ function animateBG(){
         var goal = cutoffs[wrongGuesses.length]
         if(gameover) {
             goal = 0;
+            rocketVel += 0.002;
+            rocketHeight += rocketVel;
         }
         rocketGone += (2588 - goal - rocketGone) * 0.1
 
@@ -64,5 +66,6 @@ rocket.onload = function() {
 }
 var rocketGone = 0;
 var rocketHeight = 0;
+var rocketVel = 0;
 var won = false;
 var gameover = false;

@@ -56,7 +56,8 @@ function resetGame() {
     wrongGuesses = [];
 
     rocketHeight = 0;
-    rocketGone = 0
+    rocketGone = 0;
+    rocketVel = 0;
     won = false;
     gameover = false;
 

@@ -37,13 +37,11 @@ function processInput(letter) {
         if(! revealedLetters.includes(false)) {
             won = true;
             gameover = true;
-            // TODO initiate takeoff animation
         }
     } else {
         wrongGuesses.push(letter);
         if(wrongGuesses.length == 9) {
             gameover = true;
-            // TODO initiate takeoff animation
         }
     }
 
