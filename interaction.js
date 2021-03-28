@@ -94,6 +94,10 @@ function drawButtons() {
                 ctx.fillStyle = "#000";
                 ctx.font = "3px Arial";
                 ctx.fillText(letter, 0, 1);
+            } else if(gameover) {
+                ctx.fillStyle = "#F00";
+                ctx.font = "3px Arial";
+                ctx.fillText(letter, 0, 1);
             }
             ctx.restore();
         }
