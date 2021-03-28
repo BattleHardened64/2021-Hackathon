@@ -1,7 +1,7 @@
 function drawParticles() {
     particles.forEach(function(p, i){
-        if(p.die > rocketVel) {
-            ctx.fillStyle = p.c;
+        if(p.alpha > 0) {
+            ctx.fillStyle = `rgba(${p.red}, ${p.green}, 0, ${p.alpha})`;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
             ctx.fill();
@@ -13,6 +13,7 @@ function drawParticles() {
                 p.yvel = -1 * Math.random();
                 p.xvel = Math.random() * 2 - 1
             }
+            p.alpha -= p.die
         }
     })
     if(gameover) {
@@ -31,6 +32,7 @@ function resetParticles() {
 function makeParticle() {
     var red = Math.random() * 50 + 200;
     var green = (1-Math.random()**2) * red/2 + red/2;
+    var alpha = Math.random()*0.3+0.5
     particles.push({
         x: [4.9, 8.1, 11.1][Math.floor(Math.random() * 3)] - 0.3 + 0.6 * Math.random(),
         y: -rocketHeight + 85.5 - Math.random() - rocketVel * 2,
@@ -38,8 +40,10 @@ function makeParticle() {
         yvel: 0.1 - rocketVel * 0.8,
         r: 0.8 + Math.random() * 0.4,
         rvel: Math.random() * 0.1,
-        c: `rgba(${red}, ${green}, 0, ${Math.random()*0.3+0.5})`,
-        die: rocketVel + Math.random() * 0.08
+        red: red,
+        green: green,
+        alpha:  alpha,
+        die: (0.02 + Math.random() * 0.01) * alpha
     })
 }
 
