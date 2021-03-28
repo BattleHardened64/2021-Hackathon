@@ -31,9 +31,11 @@ function processInput(letter) {
     if(correct) {
         rightGuesses.push(letter);
         // TODO check if all letters are guessed
+        drawPlayAgain();//does not get called
     } else {
         wrongGuesses.push(letter);
         // TODO trigger an animation, check if too many guesses were wrong
+        drawPlayAgain();//does not get called
     }
 
     // temporary TODO remove
@@ -80,4 +82,22 @@ function drawButtons() {
             ctx.restore();
         }
     }
+}
+  function drawPlayAgain(){
+    var canvas = document.getElementById('canvas');
+    if (canvas.getContext){
+      var rectangle = new Path2D();
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'rgb(220,220,220)';
+      rectangle.rect(95,31,40,-10);
+      ctx.fill(rectangle);
+      }
+        ctx.textAlign = "center";
+        ctx.strokeText("Play Again!",115,30,[35]);
+        // make the button clickable
+       if(ctx.isPointInPath(rectangle, lastClick.x, lastClick.y)) {
+            resetGame();
+            lastClick = {x:0, y:0};
+        }
+
 }
