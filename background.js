@@ -17,8 +17,12 @@ function animateBG(){
     ctx.translate(-50, -50);
 
     ctx.save();
+
     if(won) {
         ctx.translate(0, rocketHeight); // follow the rocket up if you won
+    }
+    if(gameover && rocketVel < 1) {
+        ctx.translate(Math.random() * (1 - rocketVel), Math.random() * (1 - rocketVel));
     }
 
     // draw some grass
