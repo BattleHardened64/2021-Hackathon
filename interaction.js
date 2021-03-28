@@ -30,7 +30,6 @@ function processInput(letter) {
         if(correctLetters[i].toLowerCase() == letter) {
             correct = true
             revealedLetters[i] = true;
-            // TODO update visual
         }
     }
 
@@ -85,7 +84,7 @@ function drawButtons() {
     correctLetters.forEach((letter, i) => {
         if(letter != " ") {
             ctx.save();
-            ctx.translate(60+i*4-correctLetters.length*2, 50);
+            ctx.translate(62+i*4-correctLetters.length*2, 50);
             ctx.fillStyle = "#9cc";
             ctx.beginPath();
             ctx.arc(0, 0, 2.5, 0, 2 * Math.PI);
@@ -110,11 +109,11 @@ function drawButtons() {
       var rectangle = new Path2D();
       var ctx = canvas.getContext('2d');
       ctx.fillStyle = 'rgb(220,220,220)';
-      rectangle.rect(95,31,40,-10);
+      rectangle.rect(40,31,40,-10);
       ctx.fill(rectangle);
       }
         ctx.textAlign = "center";
-        ctx.strokeText("Play Again!",115,30,[35]);
+        ctx.strokeText("Play Again!",60,30,[35]);
         // make the button clickable
        if(ctx.isPointInPath(rectangle, lastClick.x, lastClick.y)) {
             resetGame();

@@ -14,7 +14,7 @@ university
 college
 engineering
 engineer
-go Chargers
+Go Chargers!
 
 space
 rocket
