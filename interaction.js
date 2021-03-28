@@ -116,8 +116,8 @@ function drawButtons() {
       }
       ctx.fillStyle = 'rgb(0,0,0)';
         ctx.textAlign = "center";
-        ctx.font = '12px serif';
-        ctx.fillText("Play Again!",60,30, [35]);
+        ctx.font = '8px serif';
+        ctx.fillText("Play Again!",60,28.5, [35]);
         // make the button clickable
        if(ctx.isPointInPath(rectangle, lastClick.x, lastClick.y)) {
             resetGame();
