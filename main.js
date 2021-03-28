@@ -5,6 +5,8 @@ var allGuesses; // list of letters that have been guessed
 var rightGuesses; // list of letters that were right guesses
 var wrongGuesses; // list of letters that were wrong guesses
 
+var recent = []; // list of recent words, so we don't get repeats
+
 
 function setup(){
     // split up the word list
@@ -33,8 +35,18 @@ document.addEventListener('DOMContentLoaded', setup); // run when ready
 
 
 function resetGame() {
-    // TODO make sure we don't pick the same word twice
     word = wordlist[Math.floor(Math.random() * wordlist.length)];
+
+    // make sure we don't get a recent word again
+    while(recent.includes(word)) {
+        word = wordlist[Math.floor(Math.random() * wordlist.length)];
+    }
+
+    recent.push(word);
+    if(recent.length > 19) {
+        recent[recent.length-20] = "";
+        // terrible way to do this, but it works
+    }
 
     correctLetters = [];
     revealedLetters = [];
@@ -44,10 +56,8 @@ function resetGame() {
         letter = word[i].toLowerCase();
         if(letter >= "a" && letter <= "z") {
             revealedLetters.push(false);
-            // TODO generate the visual, an empty box
         } else {
             revealedLetters.push(true); // don't have to guess punctuation or spaces
-            // TODO generate the visual
         }
     }
 
