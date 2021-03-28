@@ -41,7 +41,7 @@ function processInput(letter) {
         }
     } else {
         wrongGuesses.push(letter);
-        if(wrongGuesses.length == 10) {
+        if(wrongGuesses.length == 9) {
             gameover = true;
             // TODO initiate takeoff animation
         }

@@ -27,14 +27,20 @@ function animateBG(){
     draw();
 
     if(rocketLoaded) {
-        rocketGone += (wrongGuesses .length / 10 - rocketGone) * 0.1
+        var cutoffs = [2588, 1599, 1469, 899, 613, 398, 295, 237, 0];
+        var goal = cutoffs[wrongGuesses.length]
+        if(gameover) {
+            goal = 0;
+        }
+        rocketGone += (2588 - goal - rocketGone) * 0.1
+
 
         ctx.save()
         var s = 70
         ctx.translate(0,15-rocketHeight);
         ctx.scale(s/2588, s/2588);
-        var x = 2588 * rocketGone
-        ctx.drawImage(rocket, 700, x, 800, 2588-x, 0, x, 800, 2588-x);
+        var x = 2588 - rocketGone
+        ctx.drawImage(rocket, 700, x, 800, rocketGone, 0, x, 800, rocketGone);
         ctx.restore()
     }
 
@@ -45,7 +51,7 @@ function animateBG(){
     if(gameover) {
         drawPlayAgain();
     }
-    
+
     requestAnimationFrame(animateBG); // run this function again every 1/60th of a second
 
 }
