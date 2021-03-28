@@ -114,8 +114,10 @@ function drawButtons() {
       rectangle.rect(40,31,40,-10);
       ctx.fill(rectangle);
       }
+      ctx.fillStyle = 'rgb(0,0,0)';
         ctx.textAlign = "center";
-        ctx.strokeText("Play Again!",60,30,[35]);
+        ctx.font = '12px serif';
+        ctx.fillText("Play Again!",60,30, [35]);
         // make the button clickable
        if(ctx.isPointInPath(rectangle, lastClick.x, lastClick.y)) {
             resetGame();
