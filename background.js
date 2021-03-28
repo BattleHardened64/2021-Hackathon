@@ -8,13 +8,18 @@ function animateBG(){
     ctx.fillStyle = "#bff5f8";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.save()
+    ctx.save();
 
     // transform the canvas coordinates so that a 100x100 square is centered and maximum size
     ctx.translate(canvas.width / 2, canvas.height / 2);
     var scale = Math.min(canvas.width / 100, canvas.height / 100);
     ctx.scale(scale, scale);
     ctx.translate(-50, -50);
+
+    ctx.save();
+    if(won) {
+        ctx.translate(0, rocketHeight); // follow the rocket up if you won
+    }
 
     // draw some grass
     ctx.fillStyle = "#30b050";
@@ -26,7 +31,7 @@ function animateBG(){
 
         ctx.save()
         var s = 70
-        ctx.translate(0,15);
+        ctx.translate(0,15-rocketHeight);
         ctx.scale(s/2588, s/2588);
         var x = 2588 * rocketGone
         ctx.drawImage(rocket, 700, x, 800, 2588-x, 0, x, 800, 2588-x);
@@ -35,6 +40,12 @@ function animateBG(){
 
     drawButtons();
 
+    ctx.restore(); // the play button is not affected by the last transform
+
+    if(gameover) {
+        drawPlayAgain();
+    }
+    
     requestAnimationFrame(animateBG); // run this function again every 1/60th of a second
 
 }
@@ -46,3 +57,6 @@ rocket.onload = function() {
     rocketLoaded = true;
 }
 var rocketGone = 0;
+var rocketHeight = 0;
+var won = false;
+var gameover = false;

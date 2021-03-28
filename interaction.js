@@ -14,6 +14,10 @@ function processInput(letter) {
     // just in case: (pun unavoidable)
     letter = letter.toLowerCase();
 
+    if(gameover) {
+        return;
+    }
+
     if(allGuesses.includes(letter)) {
         return;
     }
@@ -30,12 +34,17 @@ function processInput(letter) {
     allGuesses.push(letter);
     if(correct) {
         rightGuesses.push(letter);
-        // TODO check if all letters are guessed
-        drawPlayAgain();//does not get called
+        if(! revealedLetters.includes(false)) {
+            won = true;
+            gameover = true;
+            // TODO initiate takeoff animation
+        }
     } else {
         wrongGuesses.push(letter);
-        // TODO trigger an animation, check if too many guesses were wrong
-        drawPlayAgain();//does not get called
+        if(wrongGuesses.length == 10) {
+            gameover = true;
+            // TODO initiate takeoff animation
+        }
     }
 
     // temporary TODO remove

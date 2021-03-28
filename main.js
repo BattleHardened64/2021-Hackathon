@@ -55,6 +55,10 @@ function resetGame() {
     rightGuesses = [];
     wrongGuesses = [];
 
+    rocketHeight = 0;
+    won = false;
+    gameover = false;
+
     // temporary TODO remove
     var t = ""
     for (var i = 0; i < correctLetters.length; i++) {
