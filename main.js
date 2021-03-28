@@ -5,6 +5,8 @@ var allGuesses; // list of letters that have been guessed
 var rightGuesses; // list of letters that were right guesses
 var wrongGuesses; // list of letters that were wrong guesses
 
+var started = false; // whether the user has made any input yet
+
 var recent = []; // list of recent words, so we don't get repeats
 
 

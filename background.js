@@ -52,6 +52,16 @@ function animateBG(){
         ctx.restore()
     }
 
+    if(!started) {
+        ctx.font = "3px Arial";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "center";
+        var text1 = "Guess the phrase before the rocket takes off."
+        var text2 = "Don't get left behind!"
+        ctx.fillText(text1, 60, 20);
+        ctx.fillText(text2, 60, 25);
+    }
+
     drawButtons();
 
     ctx.restore(); // the play button is not affected by the last transform

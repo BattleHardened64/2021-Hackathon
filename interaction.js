@@ -14,6 +14,8 @@ function clickEvent(e) {
 }
 
 function processInput(letter) {
+    started = true;
+
     // just in case: (pun unavoidable)
     letter = letter.toLowerCase();
 
@@ -89,6 +91,7 @@ function drawButtons() {
             ctx.beginPath();
             ctx.arc(0, 0, 2.5, 0, 2 * Math.PI);
             ctx.fill();
+            ctx.textAlign = "center";
             if(revealedLetters[i]) {
                 ctx.fillStyle = "#000";
                 ctx.font = "3px Arial";
