@@ -2,8 +2,7 @@ function keyboardEvent(e) {
     var key = e.key.toLowerCase();
     if(key.length == 1 && key >= 'a' && key <= 'z'){
         processInput(key);
-    }
-    if(key == "enter" && gameover && rocketVel > 0.1) {
+    } else if(gameover && rocketVel > 0.1) {
         resetGame();
     }
 }

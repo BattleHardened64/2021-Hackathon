@@ -58,8 +58,10 @@ function animateBG(){
         ctx.textAlign = "center";
         var text1 = "Guess the phrase before the rocket takes off."
         var text2 = "Don't get left behind!"
+        var text3 = "Play with the keyboard or mouse."
         ctx.fillText(text1, 60, 20);
         ctx.fillText(text2, 60, 25);
+        ctx.fillText(text3, 60, 30);
     }
 
     drawButtons();
