@@ -2,12 +2,19 @@ var wordlist = `
 
 Huntsville
 Alabama
+rocket city
+trash pandas
+Space Camp
+Saturn V
+Wernher von Braun
+Redstone
 
 University of Alabama
 university
 college
 engineering
 engineer
+go Chargers
 
 space
 rocket
@@ -19,9 +26,14 @@ sun
 black hole
 comet
 Earth
+Mars
 star
 interstellar
-Milky way
+Milky Way
 NASA
+space race
+Apollo
+propulsion
+takeoff
 
 `
